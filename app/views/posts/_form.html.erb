@@ -1,27 +1,27 @@
-<%= form_with(model: post) do |form| %>
-  <% if post.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<%= form_with(model: post, class: "space-y-6") do |form| %>
+<% if post.errors.any? %>
+<div class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md">
+    <h2 class="font-semibold"><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
+    <ul class="mt-2 list-disc list-inside">
         <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <li><%= error.full_message %></li>
         <% end %>
-      </ul>
-    </div>
-  <% end %>
+    </ul>
+</div>
+<% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
+<div>
+    <%= form.label :title, class: "block text-sm font-medium text-gray-700 mb-2" %>
+    <%= form.text_field :title, class: "w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" %>
+</div>
 
-  <div>
-    <%= form.label :body, style: "display: block" %>
-    <%= form.textarea :body %>
-  </div>
+<div>
+    <%= form.label :body, class: "block text-sm font-medium text-gray-700 mb-2" %>
+    <%= form.textarea :body, rows: 10, class: "w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" %>
+</div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+<div>
+    <%= form.submit class: "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" %>
+</div>
 <% end %>

@@ -1,12 +1,26 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>Title:</strong>
-    <%= post.title %>
-  </p>
+<div id="<%= dom_id post %>" class="<%= local_assigns[:full] ? 'prose prose-lg max-w-none' : 'bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300' %>">
+    <% if local_assigns[:full] %>
+    <h1 class="text-4xl font-bold text-gray-900 mb-6"><%= post.title %></h1>
+    <div class="text-gray-700 leading-relaxed mb-6">
+        <%= post.body %>
+    </div>
+    <div class="text-sm text-gray-500 border-t pt-4">
+        Posted on <%= post.created_at.strftime("%B %d, %Y at %I:%M %p") %>
+    </div>
+    <% else %>
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+        <%= link_to post.title, post, class: "hover:text-blue-600 transition-colors" %>
+    </h2>
 
-  <p>
-    <strong>Body:</strong>
-    <%= post.body %>
-  </p>
+    <div class="text-gray-600 mb-4 line-clamp-3">
+        <%= post.body %>
+    </div>
 
+    <div class="flex justify-between items-center">
+        <span class="text-sm text-gray-500">
+            <%= post.created_at.strftime("%B %d, %Y") %>
+        </span>
+        <%= link_to "Read more", post, class: "text-blue-500 hover:text-blue-700 font-medium" %>
+    </div>
+    <% end %>
 </div>

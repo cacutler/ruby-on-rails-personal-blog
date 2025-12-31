@@ -1,11 +1,11 @@
 <% content_for :title, "New post" %>
 
-<h1>New post</h1>
+<div class="max-w-2xl mx-auto">
+    <h1 class="text-3xl font-bold text-gray-900 mb-8">Create New Post</h1>
 
-<%= render "form", post: @post %>
+    <%= render "form", post: @post %>
 
-<br>
-
-<div>
-  <%= link_to "Back to posts", posts_path %>
+    <div class="mt-6">
+        <%= link_to "Back to posts", posts_path, class: "text-blue-600 hover:text-blue-800 font-medium" %>
+    </div>
 </div>
