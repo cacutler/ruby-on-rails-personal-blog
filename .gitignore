@@ -10,6 +10,9 @@
 # Ignore all environment files.
 /.env*
 
+#Ignore node modules
+/node_modules
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
