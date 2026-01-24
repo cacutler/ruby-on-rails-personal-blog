@@ -1,24 +1,48 @@
-# README
+# Personal Blog (Ruby on Rails Project)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a basic blog project used with Ruby on Rails and PostgreSQL for learning the Ruby language, the Rails framework, and PostgreSQL.
 
-Things you may want to cover:
+### Project Information
 
 * Ruby version
+- 3.4.7
 
-* System dependencies
+* Rails version
+- 8.1.2
 
-* Configuration
+* Use the following command for installing all of the project gems:
+
+```bash
+bundle install
+```
 
 * Database creation
+- Uses PostgreSQL for the blog_development and blog_test databases and run the following commands:
+
+```bash
+psql -U postgres
+```
+
+```sql
+CREATE DATABASE blog_development;
+CREATE DATABASE blog_test;
+```
 
 * Database initialization
+- Use the following command to run database migrations:
+
+```bash
+rails db:migrate
+```
 
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+bin/rails test
+```
 
-* Deployment instructions
+* How to run the project
 
-* ...
+```bash
+bin/dev
+```
