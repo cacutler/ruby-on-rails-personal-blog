@@ -4,11 +4,9 @@ This is a basic blog project used with Ruby on Rails and PostgreSQL for learning
 
 ### Project Information
 
-* Ruby version
-- 3.4.7
+* Ruby version: 3.4.7
 
-* Rails version
-- 8.1.2
+* Rails version: 8.1.2
 
 * Use the following command for installing all of the project gems:
 
@@ -16,8 +14,7 @@ This is a basic blog project used with Ruby on Rails and PostgreSQL for learning
 bundle install
 ```
 
-* Database creation
-- Uses PostgreSQL for the blog_development and blog_test databases and run the following commands:
+* Database creation - run the following commands:
 
 ```bash
 psql -U postgres
@@ -28,20 +25,19 @@ CREATE DATABASE blog_development;
 CREATE DATABASE blog_test;
 ```
 
-* Database initialization
-- Use the following command to run database migrations:
+* Database initialization - use the following command to run database migrations:
 
 ```bash
 rails db:migrate
 ```
 
-* How to run the test suite
+* How to run the test suite:
 
 ```bash
 bin/rails test
 ```
 
-* How to run the project
+* How to run the project:
 
 ```bash
 bin/dev
