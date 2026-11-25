@@ -21,9 +21,9 @@ class PostsTest < ApplicationSystemTestCase
 
     fill_in "Body", with: @post.body
     fill_in "Title", with: @post.title
-    click_on "Create Post"
+    click_button "Create Post"
 
-    assert_text "Post was successfully created"
+    using_wait_time(5) { assert_text "Post was successfully created" }
     click_on "Back"
   end
 
