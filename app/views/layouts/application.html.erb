@@ -20,8 +20,25 @@
 </head>
 
 <body>
+    <header class="container mx-auto px-5 py-4 flex justify-end items-center gap-4">
+        <% if current_user %>
+        <span class="text-sm text-gray-600">Signed in as <%= current_user.email %></span>
+        <%= button_to "Sign out", sign_out_path, method: :delete, class: "text-blue-600 hover:text-blue-800" %>
+        <% else %>
+        <%= link_to "Sign in", sign_in_path, class: "text-blue-600 hover:text-blue-800" %>
+        <%= link_to "Create account", sign_up_path, class: "text-blue-600 hover:text-blue-800" %>
+        <% end %>
+    </header>
     <main class="container mx-auto mt-28 px-5 flex">
+        <div class="w-full">
+            <% if notice %>
+            <p class="mb-4 text-green-700"><%= notice %></p>
+            <% end %>
+            <% if alert %>
+            <p class="mb-4 text-red-700"><%= alert %></p>
+            <% end %>
         <%= yield %>
+        </div>
     </main>
 </body>
 

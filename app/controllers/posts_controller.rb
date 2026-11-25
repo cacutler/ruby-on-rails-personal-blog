@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
+  before_action :require_authentication, only: %i[ new create edit update destroy ]
   before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :authorize_post_owner, only: %i[ edit update destroy ]
 
   # GET /posts or /posts.json
   def index
@@ -21,7 +23,7 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
 
     respond_to do |format|
       if @post.save
@@ -66,5 +68,14 @@ class PostsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def post_params
       params.expect(post: [ :title, :body ])
+    end
+
+    def authorize_post_owner
+      return if @post.user_id == current_user.id
+
+      respond_to do |format|
+        format.html { redirect_to @post, alert: "You are not authorized to change this post." }
+        format.json { render json: { error: "Not authorized" }, status: :forbidden }
+      end
     end
 end

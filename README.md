@@ -31,6 +31,12 @@ CREATE DATABASE blog_test;
 rails db:migrate
 ```
 
+### Accounts and post access
+
+Visitors can read posts without an account. Create an account at `/sign_up` or sign in at `/sign_in` to publish posts. Users can edit or delete only posts they created.
+
+Existing posts remain publicly readable after migration. Since they have no recorded author, assign them to the intended user before editing them (for example, in the Rails console, set each post's `user` association).
+
 * How to run the test suite:
 
 ```bash
